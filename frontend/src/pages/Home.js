@@ -35,6 +35,7 @@ import team1 from "../assets/images/team-1.jpg";
 import team2 from "../assets/images/team-2.jpg";
 import team3 from "../assets/images/team-3.jpg";
 import team4 from "../assets/images/team-4.jpg";
+import { useEffect } from "react";
 const { Meta } = Card
 
 function Home() {
@@ -43,7 +44,15 @@ function Home() {
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
 
   const [reverse, setReverse] = useState(false);
-
+  const [attention, setAttention] = useState(60);
+  useEffect(() => {
+    setInterval(() => {
+      setTimeout(() => {
+        setAttention(attention - 1);
+        console.log(attention);
+      }, 10000);
+    } , 1000);
+  } , []);
   const dollor = [
     <svg
       width="22"
@@ -106,7 +115,7 @@ function Home() {
     },
     {
       today: "Attention",
-      title: "60",
+      title: attention,
       icon: <PushpinFilled />,
     },
     {

@@ -275,14 +275,6 @@ function Header({
                 {name.replace('/', '')}
               </Breadcrumb.Item>
           </Breadcrumb>
-        {/*   <div className="ant-page-header-heading">
-            <span
-              className="ant-page-header-heading-title"
-              style={{ textTransform: 'capitalize' }}
-            >
-              {subName.replace('/', '')}
-            </span>
-          </div> */}
         </Col>
 
         <Col span={24} md={18} className="header-control">
@@ -315,7 +307,7 @@ function Header({
             }
             trigger="click"
           >
-            <Button type="primary" shape="round" icon={<UserOutlined />}>
+            <Button type="" shape="round" icon={<UserOutlined />}>
             </Button>
           </Popover>
          
