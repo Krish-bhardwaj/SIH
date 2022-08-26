@@ -8,7 +8,7 @@ import {
   Space,
   Tag,
 } from 'antd'
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import Countdown from 'react-countdown'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import { Tabs } from 'antd'
@@ -17,6 +17,39 @@ const { Title } = Typography
 const { confirm } = Modal
 
 const MCQ = () => {
+  const [setTabHasFocus] = useState(true);
+    useEffect(() => {
+    const handleFocus = () => {
+      // alert('Tab has focus');
+      setTabHasFocus(true);
+    };
+
+    const handleBlur = () => {
+      // alert('Tab lost focus');
+      notification.error({
+        message: 'Tab lost focus',
+        description: 'Dont change tab',
+        onClick: () => {
+          console.log('Screen Change Detected')
+        },
+        duration: 5,
+        style: {
+          color: 'rgba(0, 0, 0, 0.65)',
+          border: '1px solid #ffa39e',
+          backgroundColor: '#fff1f0'
+        }
+      })
+      setTabHasFocus(false);
+    };
+
+    window.addEventListener('focus', handleFocus);
+    window.addEventListener('blur', handleBlur);
+
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('blur', handleBlur);
+    };
+  }, []);
   const [score, setScore] = useState(0)
   const [state, setState] = useState('start')
   const [status] = useState([0, 0, 0, 0, 0, 0])
