@@ -1,5 +1,4 @@
 
-
 import { useState, useEffect } from 'react'
 import { red, green } from '@ant-design/colors';
 import {
@@ -14,10 +13,11 @@ import {
   Input,
   Drawer,
   Typography,
+  Tabs,
   Popover,
   Card,
   Progress,
-  Switch,
+  Switch, 
 } from 'antd'
 
 import {
@@ -270,22 +270,13 @@ function Header({
             <Breadcrumb.Item>
               <NavLink to="/">Pages</NavLink>
             </Breadcrumb.Item>
-              <Breadcrumb.Item className="ant-page-header-heading"
-              style={{ textTransform: 'capitalize' }}>
-                {name.replace('/', '')}
-              </Breadcrumb.Item>
+            <Breadcrumb.Item style={{ textTransform: 'capitalize' }}>
+              {name.replace('/', '')}
+            </Breadcrumb.Item>
           </Breadcrumb>
         </Col>
 
-        <Col span={24} md={18} className="header-control">
-          {/* <Button
-            type="link"
-            className="sidebar-toggler"
-            onClick={() => onPress()}
-          >
-            {toggler}
-          </Button> */}
-
+        <Col span={24} md={18} className="header-control"> 
           <Popover
             placement="bottomRight"
             content={
@@ -303,11 +294,13 @@ function Header({
                 <Progress percent={30} />
                 <Progress percent={50} status="active" />
                 <Progress percent={70} status="exception" />
+                <Progress percent={100} />
               </Card>
             }
             trigger="click"
           >
-            <Button type="" shape="round" icon={<UserOutlined />}>
+            <Button  shape="round" icon={<UserOutlined />}>
+              
             </Button>
           </Popover>
          

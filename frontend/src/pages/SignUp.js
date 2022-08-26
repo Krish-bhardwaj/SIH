@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "antd/dist/antd.css";
 import {
   Layout,
   Menu,
@@ -10,18 +9,16 @@ import {
   Input,
   Checkbox,
 } from "antd";
-import logo1 from "../assets/images/logos-facebook.svg";
-import logo2 from "../assets/images/logo-apple.svg";
-import logo3 from "../assets/images/Google__G__Logo.svg.png";
+
 
 import { Link } from "react-router-dom";
-import {
-  DribbbleOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-  GithubOutlined,
-} from "@ant-design/icons";
 
+
+import "antd/dist/antd.css";
+import {
+  Cascader,
+  
+} from "antd";
 const { Title } = Typography;
 const { Header, Content } = Layout;
 const template = [
@@ -104,7 +101,6 @@ const signin = [
     />
   </svg>,
 ];
-
 export default class SignUp extends Component {
   render() {
     const onFinish = (values) => {
@@ -114,6 +110,7 @@ export default class SignUp extends Component {
     const onFinishFailed = (errorInfo) => {
       console.log("Failed:", errorInfo);
     };
+
     return (
       <>
         <div className="layout-default ant-layout layout-sign-up">
@@ -191,13 +188,54 @@ export default class SignUp extends Component {
                     { required: true, message: "Please input your password!" },
                   ]}
                 >
-                  <Input placeholder="Passwoed" />
+                  <Input placeholder="Password" />
                 </Form.Item>
-
+                <Form.Item label="Category">
+                  <Cascader
+                    options={[
+                      {
+                        value: "School",
+                        label: "School",
+                        children: [
+                          {
+                            value: "Foundational",
+                            label: "Foundational",
+                          },
+                          {
+                            value: "Preparatory",
+                            label: "Preparatory",
+                          },
+                          {
+                            value: "Middle",
+                            label: "Middle",
+                          },
+                          {
+                            value: "Secondary",
+                            label: "Secondary",
+                          },
+                        ],
+                      },
+                      {
+                        value: "College",
+                        label: "College",
+                        children: [
+                          {
+                            value: "Under Graduate",
+                            label: "Under Graduate",
+                          },
+                          {
+                            value: "Post Graduate",
+                            label: "Post Graduate",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
+                </Form.Item>
                 <Form.Item name="remember" valuePropName="checked">
                   <Checkbox>
                     I agree the{" "}
-                    <a href="#pablo" className="font-bold text-dark">
+                    <a href="#" className="font-bold text-dark">
                       Terms and Conditions
                     </a>
                   </Checkbox>

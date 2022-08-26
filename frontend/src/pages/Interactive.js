@@ -1,8 +1,7 @@
-import { Steps, Card, Button, Image } from 'antd'
+import { Steps, Card} from 'antd'
 import React, { useState } from 'react'
 import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons'
 import { Radio } from 'antd'
-import Type1 from '../components/Crausel/Type1'
 import p1 from '../pages/p/1.png'
 import p2 from '../pages/p/2.png'
 import p3 from '../pages/p/3.png'
@@ -11,12 +10,12 @@ const { Step } = Steps
 const Interactive = () => {
   const [stage, setS] = useState(0)
   const [per, setPer] = useState(0)
-  const [current, setCurrent] = useState(0)
+  // const [ setCurrent] = useState(0)
   const [slide, setSlide] = useState(0)
-  const onChange = (value) => {
-    console.log('onChange:', value)
-    setCurrent(value)
-  }
+  // const onChange = (value) => {
+  //   console.log('onChange:', value)
+  //   setCurrent(value)
+  // }
   const next = () => {
     if (per === 100) {
       setS(stage + 1)
@@ -79,7 +78,7 @@ const Interactive = () => {
       {slide >= 3 && (
         <Card>
           <img
-            src={p4}
+            src={p4} alt=""
           />
         </Card>
       )}
